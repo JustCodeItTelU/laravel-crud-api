@@ -75,9 +75,9 @@ class TopicController extends Controller
      */
     public function update(Request $request, Topic $topic)
     {
-        $topics->update($request->all());
+        $topic->update($request->all());
         
-        return new TopicResource($topics);
+        return new TopicResource($topic);
     }
 
     /**
@@ -88,7 +88,7 @@ class TopicController extends Controller
      */
     public function destroy(Topic $topic)
     {
-        $topics->delete();
+        $topic->delete();
 
         return response(null, 204);
     }

@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('topics',TopicController::class);
 
-Route::apiResource('topics.comments',CommentController::class);
+Route::apiResource('comments',CommentController::class);

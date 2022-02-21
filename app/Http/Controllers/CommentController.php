@@ -75,7 +75,9 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $comments->update($request->all());
+        $comments = Comment::find($id);
+        $comments->comment = $request->comment;
+        $comments->save();
         
         return new CommentResource($comments);
     }
@@ -86,9 +88,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        $comments->delete();
+        $comment->delete();
 
         return response(null, 204);
     }
